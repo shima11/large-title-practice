@@ -1,0 +1,16 @@
+PODS:
+  - EasyPeasy (1.9.0)
+
+DEPENDENCIES:
+  - EasyPeasy
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - EasyPeasy
+
+SPEC CHECKSUMS:
+  EasyPeasy: 19a84ef8f8bbcf925b9fecc29d1d78b7dab96718
+
+PODFILE CHECKSUM: c3ef590c12d39a45334a74a0c765b01f9791de6b
+
+COCOAPODS: 1.6.0

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EasyPeasy
 
 class ViewController: UIViewController {
 
@@ -17,9 +18,56 @@ class ViewController: UIViewController {
         self.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        self.title = "Title"
+        let searchController = UISearchController.init(searchResultsController: nil)
+        self.navigationItem.searchController = searchController
+        self.navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
+        
+        self.navigationItem.title = "Main"
+        self.navigationItem.prompt = "Main Prompt"
+        
+        let rightBarButton = UIBarButtonItem.init(barButtonSystemItem: .add, target: nil, action: nil)
+        let leftBarButton = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: nil, action: nil)
+
+        self.navigationItem.setRightBarButton(rightBarButton, animated: false)
+        self.navigationItem.setLeftBarButton(leftBarButton, animated: false)
+
+        let scrollView = UIScrollView()
+        view.addSubview(scrollView)
+        scrollView.backgroundColor = .groupTableViewBackground
+        scrollView.contentSize = .init(width: view.bounds.width, height: view.bounds.height * 2)
+        scrollView.easy.layout(Edges())
+        
+        let button = UIButton()
+        button.setTitle("Detail", for: .normal)
+        button.setTitleColor(.darkText, for: .normal)
+        button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
+        view.addSubview(button)
+        button.easy.layout(Center())
+        
     }
 
+    @objc func didTap() {
+        
+        let detailVC = DetailViewController()
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 
 }
 
+class DetailViewController: UIViewController {
+    override func viewDidLoad() {
+        
+        self.navigationItem.title = "Detail"
+        self.navigationItem.prompt = "Detail Prompt"
+
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        
+        let scrollView = UIScrollView()
+        view.addSubview(scrollView)
+        scrollView.backgroundColor = .groupTableViewBackground
+        scrollView.contentSize = .init(width: view.bounds.width, height: view.bounds.height * 2)
+        scrollView.easy.layout(Edges())
+
+    }
+}
