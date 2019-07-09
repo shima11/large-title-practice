@@ -18,12 +18,22 @@ class ViewController: UIViewController {
         self.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        let searchController = UISearchController.init(searchResultsController: nil)
-        self.navigationItem.searchController = searchController
-        self.navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
+//        let searchController = UISearchController.init(searchResultsController: nil)
+//        self.navigationItem.searchController = searchController
+//        self.navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
         
         self.navigationItem.title = "Main"
         self.navigationItem.prompt = "Main Prompt"
+        
+//        self.navigationController?.navigationBar.titleTextAttributes
+//        self.navigationController?.navigationBar.largeTitleTextAttributes =  [
+//            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20, weight: .bold),
+//            NSAttributedString.Key.foregroundColor : UIColor.darkText
+//            ]
+        
+        self.navigationController?.navigationBar.isTranslucent = false
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         
         let rightBarButton = UIBarButtonItem.init(barButtonSystemItem: .add, target: nil, action: nil)
         let leftBarButton = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: nil, action: nil)
@@ -59,6 +69,9 @@ class DetailViewController: UIViewController {
         
         self.navigationItem.title = "Detail"
         self.navigationItem.prompt = "Detail Prompt"
+
+//        self.navigationItem.largeTitleDisplayMode = .automatic
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
 
         super.viewDidLoad()
         view.backgroundColor = .white
